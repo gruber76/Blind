@@ -5,6 +5,7 @@
 'use strict';
 
 var express = require('express');
+var cors = require('cors');
 var morgan = require('morgan');
 var compression = require('compression');
 var bodyParser = require('body-parser');
@@ -16,8 +17,11 @@ var config = require('./environment');
 var passport = require('passport');
 
 module.exports = function(app) {
+
+
   var env = app.get('env');
 
+  app.use(cors());
   app.use(compression());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
