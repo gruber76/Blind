@@ -6,6 +6,8 @@ var mongoose = require('mongoose'),
 var ClueSchema = new Schema({
   name: String,
   info: String,
+  lat: Number,
+  lng: Number,
   active: Boolean
 });
 

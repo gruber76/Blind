@@ -5,6 +5,7 @@
 'use strict';
 
 var path = require('path');
+var express = require('express');
 
 module.exports = function (app) {
 
@@ -20,5 +21,5 @@ module.exports = function (app) {
 
   app.use('/auth', require('./auth'));
 
-
+  app.use(express.static('./server//static'));
 };

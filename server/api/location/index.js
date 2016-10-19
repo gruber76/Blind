@@ -2,10 +2,13 @@
 
 var express = require('express');
 var controller = require('./location.controller');
+var passport = require('passport');
 
 var router = express.Router();
 
-router.get('/', controller.index);
+router.get('/', 
+    passport.authenticate('local', { failureRedirect: '/login' }),
+    controller.index);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
 router.put('/:id', controller.update);
